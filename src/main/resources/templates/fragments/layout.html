@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(titre)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${titre} + ' - Pharmacie'">Pharmacie</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header th:fragment="entete">
+    <h1>Gestion de stock - Pharmacie</h1>
+    <nav>
+        <a th:href="@{/produits}">Produits</a>
+        <a th:href="@{/categories}">Catégories</a>
+        <a th:href="@{/fournisseurs}">Fournisseurs</a>
+        <a th:href="@{/tags}">Tags</a>
+    </nav>
+</header>
+</body>
+</html>

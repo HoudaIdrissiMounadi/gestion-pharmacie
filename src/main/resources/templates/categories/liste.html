@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Catégories')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: entete}"></header>
+<main>
+    <h2>Catégories</h2>
+    <table>
+        <thead><tr><th>#</th><th>Nom</th><th>Description</th><th>Produits</th></tr></thead>
+        <tbody>
+        <tr th:each="c : ${categories}">
+            <td th:text="${c.id}">1</td>
+            <td th:text="${c.nom}">nom</td>
+            <td th:text="${c.description}">desc</td>
+            <td><span class="badge" th:each="p : ${c.produits}" th:text="${p.nom}">produit</span></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

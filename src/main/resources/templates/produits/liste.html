@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Produits')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: entete}"></header>
+<main>
+    <h2>Liste des produits (<span th:text="${#lists.size(produits)}">0</span>)</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th><th>Nom</th><th>Prix (MAD)</th><th>Code barre</th><th>Expiration</th>
+            <th>Catégorie</th><th>Fournisseur</th><th>Tags</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${produits}">
+            <td th:text="${p.id}">1</td>
+            <td><a th:href="@{/produits/{id}(id=${p.id})}" th:text="${p.nom}">Nom</a></td>
+            <td th:text="${#numbers.formatDecimal(p.prix, 1, 2)}">0.00</td>
+            <td th:text="${p.codeBarre}">code</td>
+            <td th:text="${#temporals.format(p.dateExpiration, 'dd/MM/yyyy')}">date</td>
+            <td th:text="${p.categorie != null} ? ${p.categorie.nom} : '-'">cat</td>
+            <td th:text="${p.fournisseur != null} ? ${p.fournisseur.nom} : '-'">fourn</td>
+            <td><span class="badge" th:each="t : ${p.tags}" th:text="${t.libelle}">tag</span></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(produits)}"><td colspan="8">Aucun produit.</td></tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

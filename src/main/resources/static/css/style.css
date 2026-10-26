@@ -1,0 +1,20 @@
+:root { --bleu:#1f6f8b; --fond:#f4f7f9; --texte:#1d2b33; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, Segoe UI, Arial, sans-serif; background:var(--fond); color:var(--texte); }
+header { background:var(--bleu); color:#fff; padding:14px 24px; display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
+header h1 { font-size:1.2rem; margin:0; }
+nav a { color:#e6f3f7; text-decoration:none; margin-right:18px; font-weight:500; }
+nav a:hover { text-decoration:underline; color:#fff; }
+main { max-width:1100px; margin:24px auto; padding:0 16px; }
+table { width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+th, td { padding:10px 12px; text-align:left; border-bottom:1px solid #e3e9ed; }
+th { background:#e8f1f5; font-size:.85rem; text-transform:uppercase; letter-spacing:.03em; }
+tr:last-child td { border-bottom:none; }
+.badge { display:inline-block; background:#d9ecf3; color:#14506a; border-radius:999px; padding:2px 10px; font-size:.78rem; margin:1px 3px 1px 0; }
+.expire { color:#b3261e; font-weight:600; }
+.card { background:#fff; border-radius:8px; padding:20px 24px; box-shadow:0 1px 4px rgba(0,0,0,.08); margin-bottom:16px; }
+.card h2 { margin-top:0; font-size:1.05rem; color:var(--bleu); }
+dl { display:grid; grid-template-columns:180px 1fr; gap:6px 12px; margin:0; }
+dt { font-weight:600; }
+dd { margin:0; }
+a { color:var(--bleu); }

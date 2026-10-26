@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${produit.nom})}"></head>
+<body>
+<header th:replace="~{fragments/layout :: entete}"></header>
+<main>
+    <p><a th:href="@{/produits}">&larr; Retour à la liste</a></p>
+    <div class="card">
+        <h2 th:text="${produit.nom}">Produit</h2>
+        <dl>
+            <dt>Description</dt><dd th:text="${produit.description}"></dd>
+            <dt>Prix</dt><dd th:text="${#numbers.formatDecimal(produit.prix, 1, 2)} + ' MAD'"></dd>
+            <dt>Code barre</dt><dd th:text="${produit.codeBarre}"></dd>
+            <dt>Date d'expiration</dt><dd th:text="${#temporals.format(produit.dateExpiration, 'dd/MM/yyyy')}"></dd>
+            <dt>Catégorie</dt><dd th:text="${produit.categorie != null} ? ${produit.categorie.nom} : '-'"></dd>
+            <dt>Fournisseur</dt>
+            <dd th:text="${produit.fournisseur != null} ? ${produit.fournisseur.nom + ' (' + produit.fournisseur.adresse + ')'} : '-'"></dd>
+            <dt>Tags</dt>
+            <dd><span class="badge" th:each="t : ${produit.tags}" th:text="${t.libelle}">tag</span></dd>
+        </dl>
+    </div>
+    <div class="card" th:if="${produit.detailProduit != null}">
+        <h2>Détails du produit</h2>
+        <dl>
+            <dt>Fabricant</dt><dd th:text="${produit.detailProduit.fabricant}"></dd>
+            <dt>Pays d'origine</dt><dd th:text="${produit.detailProduit.paysOrigine}"></dd>
+            <dt>Composition</dt><dd th:text="${produit.detailProduit.composition}"></dd>
+            <dt>Dosage</dt><dd th:text="${produit.detailProduit.dosage}"></dd>
+            <dt>Indications</dt><dd th:text="${produit.detailProduit.indications}"></dd>
+        </dl>
+    </div>
+</main>
+</body>
+</html>

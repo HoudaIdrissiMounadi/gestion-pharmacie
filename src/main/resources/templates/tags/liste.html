@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Tags')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: entete}"></header>
+<main>
+    <h2>Tags</h2>
+    <table>
+        <thead><tr><th>#</th><th>Libellé</th><th>Produits</th></tr></thead>
+        <tbody>
+        <tr th:each="t : ${tags}">
+            <td th:text="${t.id}">1</td>
+            <td th:text="${t.libelle}">libellé</td>
+            <td><span class="badge" th:each="p : ${t.produits}" th:text="${p.nom}">produit</span></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
